@@ -1,0 +1,35 @@
+﻿@model GamingStore.Models.Productos
+@{
+    ViewBag.Title = "VerCarro";
+}
+
+<h2>VerCarro</h2>
+
+
+<section class="col-lg-push-9">
+
+    <h3>Productos en el Carro</h3>
+
+    @{ List<GamingStore.Models.ProductosCarro> listacarro = (List<GamingStore.Models.ProductosCarro>)Session["Usuario"];
+
+            }
+    @if (listacarro == null)
+    {
+        <h2>No hay productos en el carro</h2>
+
+    } else
+    {
+        foreach (var prod in listacarro)
+        {
+            <span>@prod.Nombre</span><br />
+            <p>@prod.Precio</p>
+            <p> Cantidad: @prod.Cantidad</p>
+            <p>Subtotal @prod.PrecioTotal</p>
+            <hr />
+
+        }
+
+
+    }
+</section>
+

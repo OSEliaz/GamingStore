@@ -1,0 +1,50 @@
+﻿@Model List<Gamingstore.Models.Productos>
+@Model List<Gamingstore.Models.Categorias>
+@{
+    ViewBag.Title = "Crear";
+}
+
+<h2>Crear</h2>
+
+@foreach (var producto in Model)
+{
+
+    <<option>@producto.Categorias</option>
+
+}
+
+<div id="respuestaajax">
+    
+</div>
+
+
+
+
+<form id="newproducto" action="/Productos/AgregarProductos" method="post">
+
+    
+    <input type="text" name="producto.Nombre" placeholder="Nombre" />
+    <br />
+    <input type="text" name="producto.Descripcion" placeholder="Descripcion" />
+    <br />
+    <input type="text" name="producto.Precio" placeholder="Precio" />
+    <br />
+    <input type="file" name="producto.Url[0]" placeholder="imagen" />
+    <br />
+    <input type="file" name="producto.Url[1]" placeholder="imagen" />
+
+    <br />
+ 
+
+
+    <button type="submit" name="btnconsulta" onclick="AgregarProductos()"> Guardar Producto</button>
+
+
+
+
+</form>
+
+
+
+
+
